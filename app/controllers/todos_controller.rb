@@ -1,4 +1,4 @@
-class TodosController < ApplicationController
+class TodosController < AuthorizedApiController
   before_action :set_todo, only: [:show, :update, :destroy]
 
   # GET /todos
