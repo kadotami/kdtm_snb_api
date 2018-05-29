@@ -30,7 +30,7 @@ gem 'rack-cors'
 
 gem 'jsonapi-resources'
 
-# use knock
+# use jwt
 gem 'jwt'
 
 group :development, :test do
