@@ -8,6 +8,7 @@ module Jwt::TokenDecoder
   private
   def current_user(token)
     begin
+      puts token
       JWT.decode(token, 'test_string')#Rails.application.secrets.secret_key_base)
     rescue 
       false

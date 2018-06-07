@@ -4,8 +4,7 @@ class AuthorizedApiController < ApplicationController
   private
     def authenticate_user
       token = request.headers['Authorization']
-      @current_user = Jwt::TokenDecoder.(token)
-      puts @current_user
+      @current_user = Jwt::TokenDecoder.(token)[0]
       render json: { error: 'Not Authorized' }, status: 401 unless @current_user
     end
 end

@@ -3,8 +3,7 @@ class TodosController < AuthorizedApiController
 
   # GET /todos
   def index
-    @todos = Todo.all
-
+    @todos = Todo.where(user_id: @current_user["user_id"].to_i)
     render json: @todos
   end
 
@@ -16,7 +15,7 @@ class TodosController < AuthorizedApiController
   # POST /todos
   def create
     @todo = Todo.new(todo_params)
-    @todo.user_id = 1
+    @todo.user_id = @current_user.user_id
     if @todo.save
       render json: @todo, status: :created, location: @todo
     else
